@@ -7,6 +7,12 @@ In order to update my profile
 
 
 @mytag
+
+Scenario:Check if user could signin Homepage
+          Given:I enter url
+		  When:I enter EmailID and Password
+		  Then: I should be on the HomePage
+
 Scenario: Check if user could able to add a skill 
 	Given I clicked on the skills tab under Profile page
 	When I add a new skill

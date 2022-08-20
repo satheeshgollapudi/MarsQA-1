@@ -5,15 +5,21 @@ In order to update my profile
 	I want to add the Education that I know
 
 
+@mytag
+
+Scenario:Check if user could signin Homepage
+          Given:I enter url
+		  When:I enter EmailID and Password
+		  Then: I should be on the HomePage
 
 Scenario: Check if user could able to add  education
 	Given I clicked on the Education tab under Profile page
 	When I add a new Education
 	Then that Education should be displayed on my listings
 
-	Scenario: Check if the user gets a message to enter all details if missed any field while adding a skill
+	Scenario: Check if the user gets a message to enter all details if missed any field while adding a education
 		Given I clicked on the Education tab under Profile page
-		When I add a new skill by missing one field
+		When I add a new education by missing one field
 		Then there should be a pop up "Please enter all the fields"
 
 Scenario: Check if the user could able to edit a skill 

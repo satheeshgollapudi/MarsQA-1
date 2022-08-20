@@ -13,22 +13,20 @@ using static MarsQA_1.Helpers.CommonMethods;
 namespace MarsQA_1.SpecflowPages.Pages
 {
     [Binding]
-    internal class Skills
+    internal class SkillsTest
     {
 
-        [Given(@"I clicked on the skills tab under Profile page")]
+        SkillsPage ST = new SkillsPage();
+
+    [Given(@"I clicked on the skills tab under Profile page")]
         public void GivenIClickedOnTheSkillsTabUnderProfilePage()
         {
             //Wait
             Thread.Sleep(1500);
 
-            // Click on Profile tab
-            Driver.driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[1]/div/a[2]")).Click();
+            ST.ClickSkillsTab();
 
-            Thread.Sleep(1000);
-            //Click on Skill Tab
-            Driver.driver.FindElement(By.XPath("//a[contains(text(),'Skills')]")).Click();
-        }
+                 }
 
         [When(@"I add a new skill")]
         public void WhenIAddANewSkill()
@@ -36,21 +34,7 @@ namespace MarsQA_1.SpecflowPages.Pages
            
 
             Thread.Sleep(3000);
-            //Click on Add New button
-            Driver.driver.FindElement(By.XPath("//div[@class='ui teal button']")).Click();
-
-            //Add Skill
-            Driver.driver.FindElement(By.XPath("//input[@placeholder='Add Skill']")).SendKeys("Manual");
-
-            //Click on Skill Level
-            Driver.driver.FindElement(By.XPath("//select[@name='level']")).Click();
-
-            //Choose the Skill level
-            IWebElement skill = Driver.driver.FindElement(By.XPath("//select[@name='level']/option[3]"));
-            skill.Click();
-
-            //Click on Add button
-            Driver.driver.FindElement(By.XPath("//input[@value='Add']")).Click();
+           ST.AddANewSkill();
 
         }
 

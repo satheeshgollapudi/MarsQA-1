@@ -4,6 +4,12 @@
 	I want to add the languages that I know
 
 @mytag
+
+Scenario:Check if user could signin Homepage
+          Given:I enter url
+		  When:I enter EmailID and Password
+		  Then: I should be on the HomePage
+
 Scenario: Check if user could able to add a language 
 	Given I clicked on the Language tab under Profile page
 	When I add a new language
@@ -12,18 +18,19 @@ Scenario: Check if user could able to add a language
 	Scenario Outline: TC2 Check if user could able to add  maximum of 4 languages 
 	Given I clicked on the Language tab under Profile page
 	When I add new Languages <Language> and <Level>
-	Then  All <Language> should be displayed on my listings
+	Then  All <Language> should be displayed as <Expected> on my listings
 	Examples:
-	| Language | Level |
-	|English  | Basic |
-	| Telugu   | Basic |
-	| Hindi    | Basic |
-	| French   | Basic |
+	| Language | Level | Expected |
+	| English  | Basic | English  |
+	| Telugu   | Basic | Telugu   |
+	| Hindi    | Basic | Hindi    |
+	| French   | Basic | French   |
 	
 	
 Scenario Outline: TC3 Check if the user gets a message to enter all details if missed Field while adding a language
 		Given I clicked on the Language tab under Profile page
-		When I add a new language by not entering one of the fields <Language> and <Level>  
+		#When I add a new language by not entering one of the fields <Language> and <Level>  
+			When I add new Languages <Language> and <Level>
 		Then there should be a pop up Please enter language and level
 Examples: 
 

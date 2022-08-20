@@ -6,6 +6,12 @@ In order to update my profile
 
 
 @tag1
+
+Scenario:Check if user could signin Homepage
+          Given:I enter url
+		  When:I enter EmailID and Password
+		  Then: I should be on the HomePage
+
 Scenario: Check if user could able to add a Certification 
 	Given I clicked on the Certifications tab under Profile page
 	When I add a new certification

@@ -157,13 +157,17 @@
     <Compile Include="SpecflowPages\Helpers\ConstantHelpers.cs" />
     <Compile Include="SpecflowPages\Helpers\Driver.cs" />
     <Compile Include="SpecflowPages\Helpers\ExcelLibHelper.cs" />
-    <Compile Include="SpecflowPages\Pages\AddLanguage.cs" />
-    <Compile Include="SpecflowPages\Pages\Certifications.cs" />
-    <Compile Include="SpecflowPages\Pages\Education.cs" />
+    <Compile Include="SpecflowTests\Bind_Steps\CertificationsTest.cs" />
+    <Compile Include="SpecflowPages\Pages\CertificationPage.cs" />
+    <Compile Include="SpecflowPages\Pages\EducationPage.cs" />
+    <Compile Include="SpecflowPages\Pages\LanguagePage.cs" />
     <Compile Include="SpecflowPages\Pages\SignIn.cs" />
-    <Compile Include="SpecflowPages\Pages\Skills.cs" />
+    <Compile Include="SpecflowPages\Pages\SkillsPage.cs" />
     <Compile Include="SpecflowPages\Utils\Start.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpecflowTests\Bind_Steps\EducationTest.cs" />
+    <Compile Include="SpecflowTests\Bind_Steps\LanguageTest.cs" />
+    <Compile Include="SpecflowTests\Bind_Steps\SkillsTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -179,7 +183,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="SpecflowTests\Bind_Steps\" />
     <Folder Include="TestReports\Screenshots\" />
     <Folder Include="TestReports\Test_files\" />
   </ItemGroup>

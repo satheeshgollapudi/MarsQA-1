@@ -1,6 +1,7 @@
 ﻿using MarsQA_1.Helpers;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using OpenQA.Selenium.Support.UI;
 using RelevantCodes.ExtentReports;
 using System;
 using System.Collections.Generic;
@@ -11,8 +12,8 @@ using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
 namespace MarsQA_1.SpecflowPages.Pages
-{ 
-    
+{
+
     internal class EducationPage
     {
 
@@ -42,7 +43,7 @@ namespace MarsQA_1.SpecflowPages.Pages
         private IWebElement Title { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//input[@name='degree']")]
-        private IWebElement Degree { get; set; }
+        private IWebElement DegreeName { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//select[@name='yearOfGraduation']/option[10]")]
         private IWebElement YearOfGraduation { get; set; }
@@ -54,7 +55,7 @@ namespace MarsQA_1.SpecflowPages.Pages
 
 
         public void ClickEducationTab()
-        { 
+        {
 
             //Wait
             Thread.Sleep(1500);
@@ -88,7 +89,7 @@ namespace MarsQA_1.SpecflowPages.Pages
             Title.Click();
 
             //Click on Degree
-            Degree.SendKeys("Masters");
+            DegreeName.SendKeys("Masters");
 
             //Year of Graduation
             YearOfGraduation.Click();
@@ -96,14 +97,48 @@ namespace MarsQA_1.SpecflowPages.Pages
 
             //Click on Add button
             AddButton.Click();
-            
+
         }
 
-      
-       
+
+        public void AddNewEducation(String Country, String University, String Title, String Degree, int Year)
+        {
+            //Click on Add New button
+            AddNewButton.Click();
+
+
+
+
+            //Click on Country
+            //Click on Title
+            SelectElement CountryName = new SelectElement(Driver.driver.FindElement(By.Name("//select[@name='country']")));
+            CountryName.SelectByText(Country);
+
+            //University
+            CollegeName.SendKeys(University);
+
+
+
+            //Click on Title
+            SelectElement TitleName = new SelectElement(Driver.driver.FindElement(By.Name("//select[@name='title']")));
+            TitleName.SelectByText(Title);
+
+            //Click on Degree
+            DegreeName.SendKeys("Masters");
+
+            //Year of Graduation
+            YearOfGraduation.Click();
+
+
+            //Click on Add button
+            AddButton.Click();
+
+
+
         }
 
     }
+}
 
 
 

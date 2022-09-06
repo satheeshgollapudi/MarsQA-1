@@ -21,7 +21,7 @@ namespace MarsQA_1.SpecflowPages.Pages
         }
 
         #region  Initialize Web Elements 
-        //Finding the Sign Link
+        //Finding the Profile tab
         [FindsBy(How = How.XPath, Using = "//div[@class='ui eight item menu']/a[contains(text(),'Profile')]")]
         private IWebElement Profiletab { get; set; }
 
@@ -30,23 +30,25 @@ namespace MarsQA_1.SpecflowPages.Pages
         private IWebElement ClickLanguagetab { get; set; }
 
 
-        //Finding the Sign Link
+        //Finding the AddNewButton 
         [FindsBy(How = How.XPath, Using = "//div[contains(text(),'Add New')]")]
         private IWebElement AddNewButton { get; set; }
 
 
-        //Finding the Sign Link
+        //Finding the AddLanguage 
         [FindsBy(How = How.XPath, Using = "//input[@name='name']")]
         private IWebElement AddLanguage { get; set; }
 
 
-        //Finding the Sign Link
+        //Finding the LanguageLevel 
         [FindsBy(How = How.XPath, Using = "//select/option[contains(text(),'Basic')]")]
         private IWebElement LanguageLevel { get; set; }
 
-        //Finding the Sign Link
+        //Finding the AddButton 
         [FindsBy(How = How.XPath, Using = "//input[@value='Add']")]
         private IWebElement AddButton { get; set; }
+
+
 
 
 
@@ -100,6 +102,14 @@ namespace MarsQA_1.SpecflowPages.Pages
 
             //Click on Add button
             AddButton.Click();
+        }
+
+        public String GetText(String elementText)
+        {
+           String ActualValue= Driver.driver.FindElement(By.XPath("//td[text()='" + elementText + "']")).Text;
+
+            return ActualValue;
+
         }
 
     }

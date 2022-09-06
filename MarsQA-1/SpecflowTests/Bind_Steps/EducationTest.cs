@@ -26,6 +26,13 @@ namespace MarsQA_1.SpecflowPages.Pages
                       EP.ClickEducationTab();
         }
 
+        [When(@"I add my education including (.*), (.*), (.*), (.*), (.*)")]
+        public void WhenIAddMyEducationIncluding(String Country,String University,String Title,String Degree, int Year)
+        {
+            throw new PendingStepException();
+        }
+
+
         [When(@"I add a new Education")]
         public void WhenIAddANewEducation()
         {
@@ -68,6 +75,41 @@ namespace MarsQA_1.SpecflowPages.Pages
 
 
         }
+
+        [Then(@"I am able to see my education details including (.*), (.*), (.*), (.*), (.*)")]
+        public void ThenIAmAbleToSeeMyEducationDetailsIncluding(String Country, String University, String Title, String Degree, int Year)
+        {
+            try
+            {
+                CommonMethods.ExtentReports();
+                Thread.Sleep(1000);
+                CommonMethods.test = CommonMethods.Extent.StartTest("Add Education", "Education");
+                //Start the Reports
+
+
+                Thread.Sleep(1000);
+                string ExpectedCountry = Country;
+
+                string ActualCountry = Driver.driver.FindElement(By.XPath("//td[text()='" + Country + "']")).Text;
+                Thread.Sleep(500);
+                if (ExpectedCountry == ActualCountry)
+                {
+                    CommonMethods.test.Log(LogStatus.Pass, "Test Passed, Added a Education Successfully");
+                    CommonMethods.SaveScreenShotClass.SaveScreenshot(Driver.driver, "EducationAdded");
+                }
+
+                else
+                    CommonMethods.test.Log(LogStatus.Fail, "Test Failed");
+
+            }
+            catch (Exception e)
+            {
+                CommonMethods.test.Log(LogStatus.Fail, "Test Failed", e.StackTrace);
+            }
+
+
+        }
+
 
     }
 }

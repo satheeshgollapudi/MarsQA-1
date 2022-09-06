@@ -1,5 +1,6 @@
 ﻿using MarsQA_1.Helpers;
 using MarsQA_1.SpecflowPages.Pages;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using RelevantCodes.ExtentReports;
 using System;
@@ -24,10 +25,10 @@ namespace MarsQA_1.SpecflowTests.Bind_Steps
         public void GivenIClickedOnTheLanguageTabUnderProfilePage()
         {
             //Wait
-            Thread.Sleep(1500);
+            Driver.TurnOnWait();
 
 
-            // Click on Profile tab
+            // Click on Language tab
             LP.ClickLanguageTab();
         }
 
@@ -44,17 +45,19 @@ namespace MarsQA_1.SpecflowTests.Bind_Steps
         {
             try
             {
+                Driver.TurnOnWait();
                 CommonMethods.ExtentReports();
-                Thread.Sleep(1000);
+                
                 CommonMethods.test = CommonMethods.Extent.StartTest("Add language", "launguage");
                 //Start the Reports
 
 
-                Thread.Sleep(1000);
-                string ExpectedValue = "English";
+                
+                string ExpectedValue = "Englis";
 
                 string ActualValue = Driver.driver.FindElement(By.XPath("//td[text()='English']")).Text;
-                Thread.Sleep(500);
+
+
                 if (ExpectedValue == ActualValue)
                 {
                     CommonMethods.test.Log(LogStatus.Pass, "Test Passed, Added a Language Successfully");
@@ -62,9 +65,13 @@ namespace MarsQA_1.SpecflowTests.Bind_Steps
                 }
 
                 else
+                {
                     CommonMethods.test.Log(LogStatus.Fail, "Test Failed");
+                }
+                Assert.That(ActualValue, Is.EqualTo(ExpectedValue));
 
             }
+
             catch (Exception e)
             {
                 CommonMethods.test.Log(LogStatus.Fail, "Test Failed", e.StackTrace);
@@ -88,7 +95,8 @@ namespace MarsQA_1.SpecflowTests.Bind_Steps
             try
             {
                 CommonMethods.ExtentReports();
-                Thread.Sleep(1000);
+                Driver.TurnOnWait();
+                
                 CommonMethods.test = CommonMethods.Extent.StartTest("Add language", "launguage");
                 //Start the Reports
 
@@ -96,7 +104,7 @@ namespace MarsQA_1.SpecflowTests.Bind_Steps
                 Thread.Sleep(1000);
                 string ExpectedValue = Expected;
 
-                string ActualValue = Driver.driver.FindElement(By.XPath("//td[text()='"+ Language+"']")).Text;
+                string ActualValue = LP.GetText(Language);
                 Thread.Sleep(500);
                 if (ExpectedValue == ActualValue)
                 {
@@ -106,6 +114,7 @@ namespace MarsQA_1.SpecflowTests.Bind_Steps
 
                 else
                     CommonMethods.test.Log(LogStatus.Fail, "Test Failed");
+                Assert.That(ActualValue, Is.EqualTo(ExpectedValue));
 
             }
             catch (Exception e)

@@ -12,6 +12,17 @@ Scenario:Check if user could signin Homepage
 		  When:I enter EmailID and Password
 		  Then: I should be on the HomePage
 
+		  @Education
+Scenario Outline: 1-Add education
+	Given I clicked on the Education tab under Profile page
+	When  I add my education including <Country>, <University>, <Title>, <Degree>, <Graduation Year>
+	Then I am able to see my education details including <Country>, <University>, <Title>, <Degree>, <Graduation Year>
+	Examples:
+	| Country     | University                      | Title  | Degree  | Graduation Year |
+	| New Zealand | Whitireia Community Polytechnic | M.Tech | Diploma | 2021            |
+	| Venezuela   | Hhutech University              | B.A    | Diploma | 2011            |
+
+
 Scenario: Check if user could able to add  education
 	Given I clicked on the Education tab under Profile page
 	When I add a new Education

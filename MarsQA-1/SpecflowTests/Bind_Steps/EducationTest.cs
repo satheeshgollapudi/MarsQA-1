@@ -1,4 +1,5 @@
 ﻿using MarsQA_1.Helpers;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using RelevantCodes.ExtentReports;
 using System;
@@ -20,16 +21,16 @@ namespace MarsQA_1.SpecflowPages.Pages
         [Given(@"I clicked on the Education tab under Profile page")]
         public void GivenIClickedOnTheEducationTabUnderProfilePage()
         {
-             //Wait
-             Thread.Sleep(1500);
+            //Wait
+            Driver.TurnOnWait();
 
-                      EP.ClickEducationTab();
+            EP.ClickEducationTab();
         }
 
         [When(@"I add my education including (.*), (.*), (.*), (.*), (.*)")]
         public void WhenIAddMyEducationIncluding(String Country,String University,String Title,String Degree, int Year)
         {
-            throw new PendingStepException();
+            EP.AddNewEducation(Country, University, Title, Degree, Year);
         }
 
 
@@ -46,17 +47,16 @@ namespace MarsQA_1.SpecflowPages.Pages
         {
             try
             {
+                Driver.TurnOnWait();
                 CommonMethods.ExtentReports();
-                Thread.Sleep(1000);
                 CommonMethods.test = CommonMethods.Extent.StartTest("Add Education", "Degree");
                 //Start the Reports
 
 
-                Thread.Sleep(1000);
                 string ExpectedValue = "Masters";
 
                 string ActualValue = Driver.driver.FindElement(By.XPath("//td[contains(text(),'Masters')]")).Text;
-                Thread.Sleep(500);
+                Driver.TurnOnWait();
                 if (ExpectedValue == ActualValue)
                 {
                     CommonMethods.test.Log(LogStatus.Pass, "Test Passed, Added a Language Successfully");
@@ -65,6 +65,7 @@ namespace MarsQA_1.SpecflowPages.Pages
 
                 else
                     CommonMethods.test.Log(LogStatus.Fail, "Test Failed");
+                Assert.That(ActualValue, Is.EqualTo(ExpectedValue));
 
             }
             catch (Exception e)
@@ -81,17 +82,17 @@ namespace MarsQA_1.SpecflowPages.Pages
         {
             try
             {
+                Driver.TurnOnWait();
                 CommonMethods.ExtentReports();
-                Thread.Sleep(1000);
                 CommonMethods.test = CommonMethods.Extent.StartTest("Add Education", "Education");
                 //Start the Reports
 
-
-                Thread.Sleep(1000);
                 string ExpectedCountry = Country;
 
-                string ActualCountry = Driver.driver.FindElement(By.XPath("//td[text()='" + Country + "']")).Text;
-                Thread.Sleep(500);
+                //string ActualCountry = Driver.driver.FindElement(By.XPath("//td[text()='" + Country + "']")).Text;
+                String ActualCountry=EP.GetText(Country);
+
+
                 if (ExpectedCountry == ActualCountry)
                 {
                     CommonMethods.test.Log(LogStatus.Pass, "Test Passed, Added a Education Successfully");
@@ -100,6 +101,7 @@ namespace MarsQA_1.SpecflowPages.Pages
 
                 else
                     CommonMethods.test.Log(LogStatus.Fail, "Test Failed");
+                Assert.That(ActualCountry, Is.EqualTo(ExpectedCountry));
 
             }
             catch (Exception e)

@@ -168,14 +168,15 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("TC3 Check if the user gets a message to enter all details if missed Field while a" +
             "dding a language")]
-        [NUnit.Framework.TestCaseAttribute("English", "", null)]
-        [NUnit.Framework.TestCaseAttribute("", "Basic", null)]
-        public void TC3CheckIfTheUserGetsAMessageToEnterAllDetailsIfMissedFieldWhileAddingALanguage(string language, string level, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("English", "", "Please enter language and level", null)]
+        [NUnit.Framework.TestCaseAttribute("", "Basic", "Please enter language and level", null)]
+        public void TC3CheckIfTheUserGetsAMessageToEnterAllDetailsIfMissedFieldWhileAddingALanguage(string language, string level, string expected, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Language", language);
             argumentsOfScenario.Add("Level", level);
+            argumentsOfScenario.Add("Expected", expected);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("TC3 Check if the user gets a message to enter all details if missed Field while a" +
                     "dding a language", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 30
@@ -195,7 +196,7 @@ this.ScenarioInitialize(scenarioInfo);
    testRunner.When(string.Format("I add new Languages {0} and {1}", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 34
-  testRunner.Then("there should be a pop up Please enter language and level", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then(string.Format("there should be a pop up Please enter language and level {0}", expected), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

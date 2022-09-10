@@ -53,7 +53,7 @@ namespace MarsQA_1.SpecflowTests.Bind_Steps
 
 
                 
-                string ExpectedValue = "Englis";
+                string ExpectedValue = "English";
 
                 string ActualValue = Driver.driver.FindElement(By.XPath("//td[text()='English']")).Text;
 
@@ -94,18 +94,19 @@ namespace MarsQA_1.SpecflowTests.Bind_Steps
         {
             try
             {
-                CommonMethods.ExtentReports();
                 Driver.TurnOnWait();
-                
-                CommonMethods.test = CommonMethods.Extent.StartTest("Add language", "launguage");
+
                 //Start the Reports
+                CommonMethods.ExtentReports();
+                CommonMethods.test = CommonMethods.Extent.StartTest("Add language", "launguage");
+                
 
 
-                Thread.Sleep(1000);
+                
                 string ExpectedValue = Expected;
 
                 string ActualValue = LP.GetText(Language);
-                Thread.Sleep(500);
+                
                 if (ExpectedValue == ActualValue)
                 {
                     CommonMethods.test.Log(LogStatus.Pass, "Test Passed, Added a Language Successfully");
@@ -123,27 +124,27 @@ namespace MarsQA_1.SpecflowTests.Bind_Steps
             }
 
 
-
-
         }
 
-        [Then(@"there should be a pop up Please enter language and level")]
-        public void ThenThereShouldBeAPopUpPleaseEnterLanguageAndLevel()
+        [Then(@"there should be a pop up Please enter language and level (.*)")]
+        public void ThenThereShouldBeAPopUpPleaseEnterLanguageAndLevel(String Expected)
         {
             try
             {
-                CommonMethods.ExtentReports();
-                Thread.Sleep(1000);
-                CommonMethods.test = CommonMethods.Extent.StartTest("Pop up-Please enter language and level");
+                Driver.TurnOnWait();
                 //Start the Reports
+                CommonMethods.ExtentReports();
+                CommonMethods.test = CommonMethods.Extent.StartTest("Pop up-Please enter language and level");
+           
+                //string ExpectedValue = "Please enter language and level";
+                String ExpectedValue = Expected;
+                
+
+                //string ActualValue = Driver.driver.FindElement(By.XPath("//body/div/div[contains(text(),'Please enter language and level')]")).Text;
+                //Console.WriteLine("Actual value is" + ActualValue);
+               String  ActualValue=LP.GetText(Expected);
 
 
-                Thread.Sleep(1000);
-                string ExpectedValue = "Please enter language and level";
-
-                string ActualValue = Driver.driver.FindElement(By.XPath("//body/div/div[contains(text(),'Please enter language and level')]")).Text;
-                Console.WriteLine("Actual value is" + ActualValue);
-                Thread.Sleep(500);
                 if (ExpectedValue == ActualValue)
                 {
                     CommonMethods.test.Log(LogStatus.Pass, "PopUp came Successfully");
@@ -152,6 +153,7 @@ namespace MarsQA_1.SpecflowTests.Bind_Steps
 
                 else
                     CommonMethods.test.Log(LogStatus.Fail, "Test Failed");
+                Assert.That(ActualValue, Is.EqualTo(ExpectedValue));
 
             }
             catch (Exception e)

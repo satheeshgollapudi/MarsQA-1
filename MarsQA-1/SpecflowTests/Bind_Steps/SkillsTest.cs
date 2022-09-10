@@ -1,4 +1,5 @@
 ﻿using MarsQA_1.Helpers;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using RelevantCodes.ExtentReports;
 using System;
@@ -22,18 +23,18 @@ namespace MarsQA_1.SpecflowPages.Pages
         public void GivenIClickedOnTheSkillsTabUnderProfilePage()
         {
             //Wait
-            Thread.Sleep(1500);
+            Driver.TurnOnWait();
 
             ST.ClickSkillsTab();
 
-                 }
+        }
 
         [When(@"I add a new skill")]
         public void WhenIAddANewSkill()
         {
            
 
-            Thread.Sleep(3000);
+           
            ST.AddANewSkill();
 
         }
@@ -43,16 +44,16 @@ namespace MarsQA_1.SpecflowPages.Pages
         {
             try
             {
+                Driver.TurnOnWait();
                 //Start the Reports
                 CommonMethods.ExtentReports();
-                Thread.Sleep(1000);
                 CommonMethods.test = CommonMethods.Extent.StartTest("Add a Skill");
 
-                Thread.Sleep(1000);
+               
                 string ExpectedValue = "Manual";
                 string ActualValue = Driver.driver.FindElement(By.XPath("//td[contains(text(),'Manual')]")).Text;
 
-                Thread.Sleep(500);
+                
                 if (ExpectedValue == ActualValue)
                 {
                     CommonMethods.test.Log(LogStatus.Pass, "Test Passed, Added a Skill Successfully");
@@ -61,6 +62,7 @@ namespace MarsQA_1.SpecflowPages.Pages
 
                 else
                     CommonMethods.test.Log(LogStatus.Fail, "Test Failed");
+                Assert.That(ActualValue, Is.EqualTo(ExpectedValue));
 
             }
             catch (Exception e)

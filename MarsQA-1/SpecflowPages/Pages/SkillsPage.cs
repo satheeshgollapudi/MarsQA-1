@@ -13,7 +13,7 @@ using static MarsQA_1.Helpers.CommonMethods;
 
 namespace MarsQA_1.SpecflowPages.Pages
 {
-    
+
     internal class SkillsPage
     {
 
@@ -51,7 +51,7 @@ namespace MarsQA_1.SpecflowPages.Pages
         private IWebElement AddButton { get; set; }
 
 
-       
+
 
 
 
@@ -61,22 +61,21 @@ namespace MarsQA_1.SpecflowPages.Pages
 
         {
 
-            //Wait
-            Thread.Sleep(1500);
+
 
             // Click on Profile tab
             Profiletab.Click();
 
-            Thread.Sleep(1000);
+
             //Click on Skill Tab
             ClickSkillstab.Click();
         }
 
         public void AddANewSkill()
         {
-           
 
-            Thread.Sleep(3000);
+
+
             //Click on Add New button
             AddNewButton.Click();
 
@@ -91,36 +90,5 @@ namespace MarsQA_1.SpecflowPages.Pages
 
         }
 
-        [Then(@"that skill should be displayed on my listings")]
-        public void ThenThatSkillShouldBeDisplayedOnMyListings()
-        {
-            try
-            {
-                //Start the Reports
-                CommonMethods.ExtentReports();
-                Thread.Sleep(1000);
-                CommonMethods.test = CommonMethods.Extent.StartTest("Add a Skill");
-
-                Thread.Sleep(1000);
-                string ExpectedValue = "Manual";
-                string ActualValue = Driver.driver.FindElement(By.XPath("//td[contains(text(),'Manual')]")).Text;
-
-                Thread.Sleep(500);
-                if (ExpectedValue == ActualValue)
-                {
-                    CommonMethods.test.Log(LogStatus.Pass, "Test Passed, Added a Skill Successfully");
-                    SaveScreenShotClass.SaveScreenshot(Driver.driver, "SkillAdded");
-                }
-
-                else
-                    CommonMethods.test.Log(LogStatus.Fail, "Test Failed");
-
-            }
-            catch (Exception e)
-            {
-                CommonMethods.test.Log(LogStatus.Fail, "Test Failed", e.Message);
-            }
-
-        }
     }
 }

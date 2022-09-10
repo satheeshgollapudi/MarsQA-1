@@ -51,19 +51,21 @@ namespace MarsQA_1.SpecflowPages.Pages
         {
 
             //Wait
-            Thread.Sleep(1500);
+            Driver.TurnOnWait();
 
             // Click on Profile tab
             Profiletab.Click();
 
-            Thread.Sleep(1000);
+            
             //Click on Certifications Tab
             Certificationtab.Click();
         }
 
         public void AddNewCertification()
         {
-            Thread.Sleep(3000);
+            //Wait
+            Driver.TurnOnWait();
+
             //Click on Add New button
             AddNewButton.Click();
 

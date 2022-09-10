@@ -1,5 +1,6 @@
 ﻿using MarsQA_1.Helpers;
 using MarsQA_1.SpecflowPages.Pages;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using RelevantCodes.ExtentReports;
 using System;
@@ -23,9 +24,9 @@ namespace MarsQA_1.SpecflowTests.Bind_Steps
         public void GivenIClickedOnTheCertificationsTabUnderProfilePage()
         {
             //Wait
-            Thread.Sleep(1500);
+            Driver.TurnOnWait();
 
-          
+
             CP.ClickCertificationTab();
         }
 
@@ -44,14 +45,14 @@ namespace MarsQA_1.SpecflowTests.Bind_Steps
             {
                 //Start the Reports
                 CommonMethods.ExtentReports();
-                Thread.Sleep(1000);
+                Driver.TurnOnWait();
                 CommonMethods.test = CommonMethods.Extent.StartTest("Add a Certificate");
 
-                Thread.Sleep(1000);
+                
                 string ExpectedValue = "Networking";
                 string ActualValue = Driver.driver.FindElement(By.XPath("//td[contains(text(),'Networking')]")).Text;
 
-                Thread.Sleep(500);
+                Driver.TurnOnWait();
                 if (ExpectedValue == ActualValue)
                 {
                     CommonMethods.test.Log(LogStatus.Pass, "Test Passed, Added a Certificate Successfully");
@@ -60,6 +61,7 @@ namespace MarsQA_1.SpecflowTests.Bind_Steps
 
                 else
                     CommonMethods.test.Log(LogStatus.Fail, "Test Failed");
+                Assert.That(ActualValue, Is.EqualTo(ExpectedValue));
 
             }
             catch (Exception e)

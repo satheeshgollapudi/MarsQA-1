@@ -111,7 +111,7 @@ namespace MarsQA_1.SpecflowPages.Pages
 
             //Click on Country
             //Click on Title
-            SelectElement CountryName = new SelectElement(Driver.driver.FindElement(By.Name("//select[@name='country']")));
+            SelectElement CountryName = new SelectElement(Driver.driver.FindElement(By.XPath("//select[@name='country']")));
             CountryName.SelectByText(Country);
 
             //University
@@ -120,7 +120,7 @@ namespace MarsQA_1.SpecflowPages.Pages
 
 
             //Click on Title
-            SelectElement TitleName = new SelectElement(Driver.driver.FindElement(By.Name("//select[@name='title']")));
+            SelectElement TitleName = new SelectElement(Driver.driver.FindElement(By.XPath("//select[@name='title']")));
             TitleName.SelectByText(Title);
 
             //Click on Degree
@@ -133,7 +133,13 @@ namespace MarsQA_1.SpecflowPages.Pages
             //Click on Add button
             AddButton.Click();
 
+        }
 
+        public String GetText(String elementText)
+        {
+            String ActualValue = Driver.driver.FindElement(By.XPath("//td[text()='" + elementText + "']")).Text;
+
+            return ActualValue;
 
         }
 

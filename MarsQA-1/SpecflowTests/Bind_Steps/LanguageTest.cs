@@ -124,8 +124,6 @@ namespace MarsQA_1.SpecflowTests.Bind_Steps
             }
 
 
-
-
         }
 
         [Then(@"there should be a pop up Please enter language and level (.*)")]

@@ -20,7 +20,7 @@ namespace MarsQA_1.Utils
         {
             //launch the browser
             Initialize();
-            ExcelLibHelper.PopulateInCollection(@"C:\Users\gskum\OneDrive\Documents\Satheesh Project\onboarding.specflow-master\MarsQA-1\SpecflowTests\Data\Mars.xlsx", "Credentials");
+            ExcelLibHelper.PopulateInCollection(@"MarsQA-1\SpecflowTests\Data\Mars.xlsx", "Credentials");
             //call the SignIn class
             SignIn.SigninStep();
         }
@@ -30,8 +30,8 @@ namespace MarsQA_1.Utils
         {
 
             // Screenshot
-            //string img = SaveScreenShotClass.SaveScreenshot(Driver.driver, "Report");
-          // test.Log(LogStatus.Info, "Snapshot below: " + test.AddScreenCapture(img));
+            string img = SaveScreenShotClass.SaveScreenshot(Driver.driver, "Report");
+           test.Log(LogStatus.Info, "Snapshot below: " + test.AddScreenCapture(img));
             //Close the browser
             Close();
              

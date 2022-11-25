@@ -43,7 +43,8 @@ namespace MarsQA_1.Helpers
         #region reports
         public static ExtentTest test;
         public static ExtentReports Extent;
-        internal static object extent;
+
+
 
         public static void ExtentReports()
         {

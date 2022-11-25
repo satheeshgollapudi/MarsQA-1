@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
-
 namespace MarsQA_1.Feature
 {
     [Binding]
@@ -14,11 +13,7 @@ namespace MarsQA_1.Feature
         [Given(@"I login to the website")]
         public void GivenILoginToTheWebsite()
         {
-            //ScenarioContext.Current.Pending();
-           // Pages.SignIn.SigninStep();
-
-
-
+            ScenarioContext.Current.Pending();
         }
 
     }

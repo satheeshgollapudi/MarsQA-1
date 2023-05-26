@@ -1,4 +1,4 @@
-﻿]2]using MarsQA_1.Helpers;
+﻿using MarsQA_1.Helpers;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using RelevantCodes.ExtentReports;

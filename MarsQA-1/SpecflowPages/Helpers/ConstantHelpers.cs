@@ -12,10 +12,10 @@ namespace MarsQA_1.Helpers
         public static string Url = "http://localhost:5000";
 
         //ScreenshotPath
-        public static string ScreenshotPath = @"C:\Users\gskum\OneDrive\Documents\SatheeshProject\onboarding.specflow-master\MarsQA-1\TestReports\Screenshots";
+        public static string ScreenshotPath = @"C:\Users\gskum\OneDrive\Documents\SatheeshProject\onboarding.specflow-master\MarsQA-1\TestReports\Screenshots\";
 
         //ExtentReportsPath
-        public static string ReportsPath = @"C:\Users\gskum\OneDrive\Documents\SatheeshProject\onboarding.specflow-master\MarsQA-1\TestReport";
+        public static string ReportsPath = @"C:\Users\gskum\OneDrive\Documents\SatheeshProject\onboarding.specflow-master\MarsQA-1\TestReports\Report.html";
 
         //ReportXML Path
         public static string ReportXMLPath = @"C:\Users\gskum\OneDrive\Documents\SatheeshProject\onboarding.specflow-master\MarsQA-1\TestReports";

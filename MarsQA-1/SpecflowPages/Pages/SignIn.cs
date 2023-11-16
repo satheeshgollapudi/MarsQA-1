@@ -1,10 +1,11 @@
-﻿using MarsQA_1.Helpers;
+﻿
+using MarsQA_1.Helpers;
 using OpenQA.Selenium;
 using System.Threading;
 
 namespace MarsQA_1.Pages
 {
-    public static class SignIn
+    public static class SignIn 
     {
         private static IWebElement SignInBtn =>  Driver.driver.FindElement(By.XPath("//A[@class='item'][text()='Sign In']"));
         private static IWebElement Email => Driver.driver.FindElement(By.XPath("(//INPUT[@type='text'])[2]"));

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using TechTalk.SpecFlow;
 using static MarsQA_1.Helpers.CommonMethods;
+using static MarsQA_1.Helpers.Driver;
 
 namespace MarsQA_1.Utils
 {

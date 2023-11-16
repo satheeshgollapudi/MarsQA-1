@@ -23,6 +23,7 @@ namespace MarsQA_1.Helpers
             driver.Manage().Window.Maximize();
         }
 
+
         public static string BaseUrl
         {
             get { return ConstantHelpers.Url; }

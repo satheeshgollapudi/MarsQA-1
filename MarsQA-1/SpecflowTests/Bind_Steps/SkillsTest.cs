@@ -9,14 +9,14 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
-using static MarsQA_1.Helpers.CommonMethods;
+
 
 namespace MarsQA_1.SpecflowPages.Pages
 {
     [Binding]
     internal class SkillsTest
     {
-
+        CommonMethods c=new CommonMethods();
         SkillsPage ST = new SkillsPage();
 
     [Given(@"I clicked on the skills tab under Profile page")]
@@ -57,7 +57,7 @@ namespace MarsQA_1.SpecflowPages.Pages
                 if (ExpectedValue == ActualValue)
                 {
                     CommonMethods.test.Log(LogStatus.Pass, "Test Passed, Added a Skill Successfully");
-                    SaveScreenShotClass.SaveScreenshot(Driver.driver, "SkillAdded");
+                    c.SaveScreenShotClass.SaveScreenshot(Driver.driver, "SkillAdded");
                 }
 
                 else

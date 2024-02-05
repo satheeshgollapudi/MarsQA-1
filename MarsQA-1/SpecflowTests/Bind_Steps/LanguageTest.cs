@@ -14,7 +14,7 @@ using TechTalk.SpecFlow;
 namespace MarsQA_1.SpecflowTests.Bind_Steps
 {
     [Binding]
-    internal class LanguageTest
+    internal class LanguageTest : CommonMethods
     {
 
         LanguagePage LP = new LanguagePage();
@@ -46,7 +46,7 @@ namespace MarsQA_1.SpecflowTests.Bind_Steps
             try
             {
                 Driver.TurnOnWait();
-                CommonMethods.ExtentReports();
+                ExtentReports();
                 
                 CommonMethods.test = CommonMethods.Extent.StartTest("Add language", "launguage");
                 //Start the Reports

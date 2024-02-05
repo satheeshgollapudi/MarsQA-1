@@ -24,6 +24,14 @@ namespace MarsQA_1.Utils
             //launch the browser
             Initialize();
             ExcelLibHelper.PopulateInCollection(@"C:\Users\gskum\OneDrive\Documents\SatheeshProject\onboarding.specflow-master\MarsQA-1\SpecflowTests\Data\Mars.xlsx", "Credentials");
+
+            //Added
+            Driver.TurnOnWait();
+            //CommonMethods.ExtentReports();
+
+            //CommonMethods.test = CommonMethods.Extent.StartTest("Add language", "launguage");
+            //Start the Reports
+
             //call the SignIn class
             SignIn.SigninStep();
         }

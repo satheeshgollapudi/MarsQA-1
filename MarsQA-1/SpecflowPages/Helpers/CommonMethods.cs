@@ -20,7 +20,8 @@ namespace MarsQA_1.Helpers
             
             public static string SaveScreenshot(IWebDriver driver, string ScreenShotFileName) // Definition
             {
-                var folderLocation = (ConstantHelpers.ScreenshotPath);
+                //var folderLocation = (ConstantHelpers.ScreenshotPath);
+                var folderLocation = ConstantHelpers.paths(@"MarsQA-1\TestReports\Screenshots\");
 
                 if (!System.IO.Directory.Exists(folderLocation))
                 {

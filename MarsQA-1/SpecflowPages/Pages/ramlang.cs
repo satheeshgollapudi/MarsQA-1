@@ -19,6 +19,14 @@ namespace MarsQA_1.SpecflowPages
     }
         //12345
 
+        //12345
+
+        //12345
+
+        //12345
+
+        //12345
+
 
         [FindsBy(How = How.XPath, Using = "//div[@class='ui eight item menu']/a[contains(text(),'Profile')]")]
         private IWebElement Profiletab { get; set; }
